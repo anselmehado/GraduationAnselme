@@ -62,7 +62,7 @@ Things you may want to cover:
 
 
 # Table Definition Document
-[catalogue](https://docs.google.com/spreadsheets/d/1cYzAlDXgsz7RZSZwGabbGkPrumXhgbTTwjaqbG7sj1A/edit?usp=sharing)
+[table](https://docs.google.com/spreadsheets/d/1cYzAlDXgsz7RZSZwGabbGkPrumXhgbTTwjaqbG7sj1A/edit?usp=sharing)
 
 
 # Wireframe
