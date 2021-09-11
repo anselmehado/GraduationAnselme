@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "publication#index"
+  root "publications#index"
   resources :favorites
   resources :publications
   resources :comments
