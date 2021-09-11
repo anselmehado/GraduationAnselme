@@ -16,6 +16,12 @@
     <%= form.text_field :title %>
   </div>
 
+
+  <div class="field">
+  <label for="inputDisabledEx2" class="disabled">Select your category</label>
+    <%= form.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true%>
+  </div>
+
   <div class="field">
     <%= form.label :content %>
     <%= form.text_area :content %>
