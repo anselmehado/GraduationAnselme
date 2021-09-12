@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <strong>Title:</strong>
   <%= @publication.title %>
@@ -12,8 +13,9 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @publication.image %>
+   <%= image_tag(@publication.image_url,style:'width:100px;height:100px')  %>
 </p>
+
 
 <p>
   <strong>Date:</strong>

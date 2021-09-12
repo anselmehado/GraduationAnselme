@@ -28,9 +28,12 @@
   </div>
 
   <div class="field">
+  
     <%= form.label :image %>
-    <%= form.text_area :image %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
   </div>
+
 
   <div class="field">
     <%= form.label :date %>
