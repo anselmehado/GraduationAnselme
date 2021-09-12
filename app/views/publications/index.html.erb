@@ -5,10 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Image</th>
-      <th>Date</th>
+      <th>Title</th><br>
+      <th>Content</th><br>
+      <th>Image</th><br>
+      <th>Categories</th><br>
+      <th>Date</th><br><br>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,7 +19,16 @@
       <tr>
         <td><%= publication.title %></td>
         <td><%= publication.content %></td>
-        <td><%= publication.image %></td>
+        <td>
+              <% if publication.image_url %>
+                   <%= image_tag publication.image_url, style:'width:100px;height:100px' %>
+
+               <% end %>
+         </td>
+         <td>
+
+
+        <td><%= publication.category.name %></td>
         <td><%= publication.date %></td>
         <td><%= link_to 'Show', publication %></td>
         <td><%= link_to 'Edit', edit_publication_path(publication) %></td>
