@@ -70,7 +70,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
 
-gem 'ckeditor'
-gem 'paperclip'
+#gem 'ckeditor'
+#gem 'paperclip'
 
 #gem "ckeditor", :git => "https://github.com/galetahub/ckeditor.git"
+
+gem 'ckeditor', github: 'galetahub/ckeditor'
