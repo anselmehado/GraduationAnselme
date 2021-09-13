@@ -1,3 +1,4 @@
 class Comment < ApplicationRecord
-  comments   belongs_to :publication
+ 
+   belongs_to :publication
 end
