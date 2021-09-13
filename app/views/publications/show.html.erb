@@ -32,7 +32,7 @@
 
 
 <% unless @publication.user_id == current_user.id %>
-<% if @favorite.present? %>
+<% if @favorite.present? %>1
   <%= link_to 'Remove favorite', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
 <% else %>
   <%= link_to 'Favorite', favorites_path(publication_id: @publication.id), method: :post, class: 'btn btn-primary' %>
