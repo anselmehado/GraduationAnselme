@@ -25,8 +25,27 @@
 </p>
 
 
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="blog-text">
+    <p><strong>Title</strong>：<%= @publication.title %></p>
+    <p><strong>Content</strong>：<%= @publication.content %></p>
+    <p><strong>Content</strong>：<%= image_tag(@publication.image_url,style:'width:100px;height:100px')  %></p>
+    <p><strong>Content</strong>：<%= @publication.date %></p>
 
 
+  </div>
+  <p>List of comments (the contents below from here are important)</p>
+  <!-- Get the HTML id of this comments_area and update only that part of the div-->
+  <div id="comments_area">
+    <!-- Render to display a list of posted comments on the blog details page -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, publication: @publication } %>
+  </div>
+  <!-- Render to display the comment input field on the detail page of the blog -->
+  <%= render partial: 'comments/form', locals: { comment: @comment, publication: @publication } %>
+  <%= link_to 'Edit', edit_publication_path(@publication) %> |
+  <%= link_to 'Return', publications_path %>
+</div>
 
 
 
@@ -43,11 +62,4 @@
   <%= link_to 'list comments', new_comment_path %>
 
 
-
-
-
-  <%= link_to 'New Publication', new_publication_path %>
-
-
-<%= link_to 'Edit', edit_publication_path(@publication) %> |
 <%= link_to 'Back', publications_path %>

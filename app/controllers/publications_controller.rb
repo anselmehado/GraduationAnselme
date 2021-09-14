@@ -9,6 +9,8 @@ class PublicationsController < ApplicationController
   # GET /publications/1 or /publications/1.json
   def show
         @favorite = current_user.favorites.find_by(publication_id: @publication.id)
+        @comments = @publication.comments
+        @comment = @publication.comments.build
   end
 
   # GET /publications/new

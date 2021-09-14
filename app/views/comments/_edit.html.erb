@@ -10,17 +10,16 @@
     </div>
   <% end %>
   <div class="field">
+    <%= form.text_area :content, id: "comment_content_#{publication.id}" %>
     <%= form.label :content %>
-    <%= form.text_area :content %>
   </div>
-
   <div class="field">
+    <%= form.text_field :name, id: "comment_name_#{publication.id}" %>
     <%= form.label :name %>
-    <%= form.text_field :content %>
   </div>
   <div class="field">
+    <%= form.text_field :email, id: "comment_email_#{publication.id}" %>
     <%= form.label :email %>
-    <%= form.text_field :content %>
   </div>
   <div class="actions">
     <%= form.submit %>
