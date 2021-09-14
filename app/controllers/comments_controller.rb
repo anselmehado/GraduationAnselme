@@ -1,15 +1,19 @@
 class CommentsController < ApplicationController
-  before_action :set_publication, only: [:create, :edit, :update]
+  # An action to save and post a comment.
   def create
+    # Search Blog from the parameter value and build it as comments associated with Blog.
+    @publication = Publication.find(params[:publication_id])
     @comment = @publication.comments.build(comment_params)
+    # Change format according to client request
     respond_to do |format|
       if @comment.save
         format.js { render :index }
       else
-        format.html { redirect_to blog_path(@publication), notice: 'Couldn't post...' }
+        format.html { redirect_to publication_path(@publication), notice: 'Couldn't post...' }
       end
     end
   end
+
 
   def edit
     @comment = @publication.comments.find(params[:id])
@@ -31,8 +35,6 @@ class CommentsController < ApplicationController
       end
   end
 
-
-
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
@@ -45,11 +47,11 @@ class CommentsController < ApplicationController
 
 
 
+
+
   private
+  # Strong parameters
   def comment_params
-    params.require(:comment).permit(:publication_id, :content, :name, :email)
-  end
-  def set_blog
-    @blog = Blog.find(params[:publication_id])
+    params.require(:comment).permit(:publication_id, :content,:name,:email)
   end
 end

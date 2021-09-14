@@ -1,3 +1,29 @@
+<br><br>
+<p>
+  <strong>Title:</strong>
+  <%= @publication.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @publication.content %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+
+   <%= image_tag(@publication.image_url,style:'width:100px;height:100px')  %>
+</p>
+
+<p>
+  <strong>category:</strong>
+  <%= @publication.category.name %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= @publication.date %>
+</p>
+
 
 <div class="container">
   <p id="notice"><%= notice %></p>
@@ -6,7 +32,6 @@
     <p><strong>Content</strong>：<%= @publication.content %></p>
     <p><strong>Image</strong>：<%= image_tag(@publication.image_url,style:'width:100px;height:100px')  %></p>
     <p><strong>Date</strong>：<%= @publication.date %></p>
-    <p><strong>Date</strong>：<%= @publication.category.name %></p>
 
 
   </div>
