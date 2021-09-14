@@ -11,6 +11,7 @@
 
   </div>
   <p>List of comments (the contents below from here are important)</p>
+
   <!-- Get the HTML id of this comments_area and update only that part of the div-->
   <div id="comments_area">
     <!-- Render to display a list of posted comments on the publication details page -->
@@ -21,6 +22,8 @@
   <%= render partial: 'comments/form', locals: { comment: @comment, publication: @publication } %>
   <%= link_to 'Edit', edit_publication_path(@publication) %> |
   <%= link_to 'Return', publications_path %>
+
+
 </div>
 
 

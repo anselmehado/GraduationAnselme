@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
 
-   has_many :publications
+   belongs_to :publications
    scope :publication_comment_list, -> (query) {where(publication_id: query)}
    validates :content, presence: true
    validates :name, presence: true
