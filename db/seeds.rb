@@ -18,3 +18,7 @@ Category.create(name:"Societe")
 Category.create(name:"Environnement")
 Category.create(name:"Religion")
 Category.create(name:"Actualite")
+
+
+
+#User.create(name: "anselme", email: "anselme@yahoo.fr", admin: "true", password: "123456", password_confirmation: "123456")

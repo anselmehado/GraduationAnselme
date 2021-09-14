@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 
 <p>
   <strong>Title:</strong>
@@ -14,9 +12,7 @@
 <p>
   <strong>Image:</strong>
 
-
    <%= image_tag(@publication.image_url,style:'width:100px;height:100px')  %>
-
 </p>
 
 <p>
@@ -28,19 +24,19 @@
   <%= @publication.date %>
 </p>
 
-
-
-
 <% unless @publication.user_id == current_user.id %>
-<% if @favorite.present? %>1
+<% if @favorite.present? %>
   <%= link_to 'Remove favorite', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
 <% else %>
   <%= link_to 'Favorite', favorites_path(publication_id: @publication.id), method: :post, class: 'btn btn-primary' %>
+
 <% end %>
 <% end %>
 
+  <%= link_to 'list comments', new_comment_path %>
 
 
+  <%= link_to 'New Publication', new_publication_path %>
 
 
 <%= link_to 'Edit', edit_publication_path(@publication) %> |
