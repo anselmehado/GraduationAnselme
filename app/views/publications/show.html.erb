@@ -24,6 +24,13 @@
   <%= @publication.date %>
 </p>
 
+
+
+
+
+
+
+
 <% unless @publication.user_id == current_user.id %>
 <% if @favorite.present? %>
   <%= link_to 'Remove favorite', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
