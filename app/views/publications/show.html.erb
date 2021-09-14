@@ -6,7 +6,7 @@
     <p><strong>Content</strong>：<%= @publication.content %></p>
     <p><strong>Image</strong>：<%= image_tag(@publication.image_url,style:'width:100px;height:100px')  %></p>
     <p><strong>Date</strong>：<%= @publication.date %></p>
-    <p><strong>Date</strong>：<%= @publication.category.name %></p>
+    <p><strong>Categorie</strong>：<%= @publication.category.name %></p>
 
 
   </div>
@@ -15,8 +15,9 @@
   <div id="comments_area">
     <!-- Render to display a list of posted comments on the publication details page -->
     <%= render partial: 'comments/index', locals: { comments: @comments, publication: @publication } %>
+
   </div>
-  <!-- Render to display the comment input field on the detail page of the publication-->
+
   <%= render partial: 'comments/form', locals: { comment: @comment, publication: @publication } %>
   <%= link_to 'Edit', edit_publication_path(@publication) %> |
   <%= link_to 'Return', publications_path %>

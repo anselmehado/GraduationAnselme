@@ -1,12 +1,16 @@
+
+
+
 <ul>
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
       <li>
         <div class="comment-content" id ="this_comment_<%= comment.id %>"></div>
         <p><%= comment.content %></p>
+
+        <p><%= comment.content %></p>
         <p><%= comment.name %></p>
         <p><%= comment.email %></p>
-
         <p><%= link_to "Edit comment", edit_publication_comment_path(publication, comment), remote: true %></p>
         <!-- Addendum -->
         <p><%= link_to "Delete comment", publication_comment_path(comment.publication_id, comment.id), method: :delete, remote: true,

@@ -6,14 +6,17 @@
       <th>Title</th><br>
       <th>Content</th><br>
       <th>Image</th><br>
-      <th>Categories</th><br>
-      <th>Date</th><br><br>
+      <th>Categories</th>
+      <th>Date</th><br>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
+
     <% @publications.each do |publication| %>
+
+<div class="container">
+
       <tr>
         <td><%= publication.title %></td>
         <td><%= publication.content %></td>
@@ -22,18 +25,19 @@
                    <%= image_tag publication.image_url, style:'width:100px;height:100px' %>
                <% end %>
          </td>
-         <td>
 
         <td><%= publication.category.name %></td>
         <td><%= publication.date %></td>
+
         <td><%= link_to 'Read More', publication %></td>
         <td><%= link_to 'Edit', edit_publication_path(publication) %></td>
         <td><%= link_to 'comment', new_comment_path %></td>
         <td><%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
       </tr>
     <% end %>
-  </tbody>
+
 </table>
+
 
 <br>
 
