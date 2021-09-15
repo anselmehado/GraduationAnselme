@@ -27,8 +27,6 @@
 </div>
 
 
-
-
 <% unless @publication.user_id == current_user.id %>
 <% if @favorite.present? %>
   <%= link_to 'Remove favorite', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
@@ -37,8 +35,5 @@
 
 <% end %>
 <% end %>
-
-  <%= link_to 'list comments', new_comment_path %>
-
 
 <%= link_to 'Back', publications_path %>

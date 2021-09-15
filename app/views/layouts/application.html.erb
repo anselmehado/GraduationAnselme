@@ -14,7 +14,7 @@
 
     <p class="navbar-text float-left">
       <% if user_signed_in? %>
-          <td>  Logged in as <strong><%= current_user.email %></strong>.</td> <br><br>
+          <td>  Logged in as <strong><%= current_user.email %></strong>.</td> <br>
 
     <div class=""> <br><br>
 
@@ -26,20 +26,10 @@
       <% end %>
    </div>
 
-
-        <% if notice %>
-          <p class="alert alert-success"><%= notice %></p>
-        <% end %>
-        <% if alert %>
-          <p class="alert alert-danger"><%= alert %></p>
-
-
-        <% end %>
-
-
-
-
-
     <%= yield %>
+
+    <div class="">
+
+    </div>
   </body>
 </html>

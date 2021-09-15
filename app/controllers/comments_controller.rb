@@ -1,59 +1,72 @@
 class CommentsController < ApplicationController
-  before_action :set_publication, only: [:create, :edit, :update]
+  before_action :set_comment, only: %i[ show edit update destroy ]
 
-  def create
-    # Search Blog from the parameter value and build it as comments associated with Blog.
-    @publication = Publication.find(params[:publication_id])
-    @comment = @publication.comments.build(comment_params)
-
-    # Change format according to client request
-    respond_to do |format|
-      if @comment.save
-        format.js {render :index}
-      else
-        format.html {redirect_to publication_path(@publication), notice: "Couldn't post..."}
-      end
-    end
+  # GET /comments or /comments.json
+  def index
+    @comments = Comment.all
   end
 
+  # GET /comments/1 or /comments/1.json
+  def show
+  end
 
+  # GET /comments/new
+  def new
+    @comment = Comment.new
+  end
+
+  # GET /comments/1/edit
   def edit
-    @comment = @publication.comments.find(params[:id])
-    respond_to do |format|
-      flash.now[:notice] = "editing"
-      format.js {render :edit}
-    end
-  end
-  def update
-    @comment = @publication.comments.find(params[:id])
-      respond_to do |format|
-        if @comment.update(comment_params)
-          flash.now[:notice] = 'edited'
-          format.js {render :index}
-        else
-          flash.now[:notice] = 'Failed to edit'
-          format.js {render :edit_error}
-        end
-      end
   end
 
-  def destroy
-  @comment = Comment.find(params[:id])
-  @comment.destroy
-  respond_to do |format|
-    flash.now[:notice] = 'deleted'
-    format.js {render :index}
+  # POST /comments or /comments.json
+  def create
+    @comment = Comment.new(comment_params)
+    #@publication = Publication.find(params[:publication_id])
+    #@comment = @publication.comments.build(comment_params)
+
+    respond_to do |format|
+        if @comment.save
+            format.js
+            format.html { redirect_to root_path }
+        else
+            format.js
+            format.html { flash[:alert] = "Save failed! #{@comment.errors.full_messages.join(";")}"
+            render "new" }
+        end
+    end
+end
+
+  # PATCH/PUT /comments/1 or /comments/1.json
+  def update
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to @comment, notice: "Comment was successfully updated." }
+        format.json { render :show, status: :ok, location: @comment }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
   end
- end
+
+  # DELETE /comments/1 or /comments/1.json
+  def destroy
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to comments_url, notice: "Comment was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
 
   private
-  # Strong parameters
-  def comment_params
-    params.require(:comment).permit(:publication_id, :content,:name,:email)
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_comment
+      @comment = Comment.find(params[:id])
+    end
 
-  def set_publication
-  @publication = Publication.find(params[:publication_id])
-  end
-
+    # Only allow a list of trusted parameters through.
+    def comment_params
+      params.require(:comment).permit(:content,:name,:email, :publication_id)
+    end
 end
