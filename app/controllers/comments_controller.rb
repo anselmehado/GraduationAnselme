@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     # Search Blog from the parameter value and build it as comments associated with Blog.
     @publication = Publication.find(params[:publication_id])
     @comment = @publication.comments.build(comment_params)
+
     # Change format according to client request
     respond_to do |format|
       if @comment.save
