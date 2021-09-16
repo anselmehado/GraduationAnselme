@@ -67,16 +67,16 @@
                                <a href="index.html">Home</a>
                             </li>
                             <li>
-                               <a href="about.html">News</a>
+                               <a href="about.html"><%= link_to 'Publication', new_publication_path %></a>
                             </li>
                             <li>
-                               <a href="marketing.html">Marketing</a>
+                               <a href="marketing.html"><%= link_to 'Category', new_category_path %></a>
                             </li>
                             <li>
-                               <a href="contact.html">Contact us</a>
+                               <a href="profile.html"><%= link_to 'profile', edit_user_registration_path %></a>
                             </li>
                             <li>
-                               <a href="contact.html">Contact us</a>
+                               <a href="deconnexion.html"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></a>
                             </li>
 
                             <li>
@@ -86,7 +86,7 @@
                                <a href="#"><%= link_to "Sign up", new_user_registration_path  %></a>
                             </li>
                             <li>
-                               <a href="#"><%= image_tag("search_icon.png")%></a>
+
                             </li>
                          </ul>
                       </nav>
