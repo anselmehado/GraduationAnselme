@@ -16,6 +16,18 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 #Rails.application.config.assets.precompile += %w[ckeditor/config.js]
 
 Rails.application.config.assets.precompile += %w( ckeditor/* )
+
+Rails.application.config.assets.precompile += %w( style.css )
+
+Rails.application.config.assets.precompile += %w( bootstrap.min.css )
+Rails.application.config.assets.precompile += %w( bootstrap-select.min.css )
+
+Rails.application.config.assets.precompile += %w( font-awesome.min.css )
+Rails.application.config.assets.precompile += %w( animate-wow.css )
+Rails.application.config.assets.precompile += %w( slick.min.css )
+Rails.application.config.assets.precompile += %w( responsive.css)
+
+Rails.application.config.assets.precompile += %w( jquery.mCustomScrollbar.min.css)
 #Rails.application.config.assets.precompile + = %w[ ckeditor/config.js ]
 #Rails.application.config.assets.precompile += %w( ckeditor/* )
 

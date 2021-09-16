@@ -8,7 +8,7 @@
         <p><%= comment.email %></p>
         <p><%= comment.content %></p>
 
-        <p><%= link_to "Edit comment", edit_publication_comment_path(comment.publication_id, comment.id) %></p>
+        <p><%= link_to "Edit comment", edit_publication_comment_path(publication, comment), remote: true %></p>
         <!-- Addendum -->
         <p><%= link_to "Delete comment", publication_comment_path(comment.publication_id, comment.id), method: :delete, remote: true,
                                         data: { confirm: "Do you really want to delete this?"} %></p>
