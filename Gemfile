@@ -76,3 +76,5 @@ gem 'mimemagic', '0.3.7'
 #gem "ckeditor", :git => "https://github.com/galetahub/ckeditor.git"
 
 gem 'ckeditor', github: 'galetahub/ckeditor'
+
+gem 'ahoy_matey'

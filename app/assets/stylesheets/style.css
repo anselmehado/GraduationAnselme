@@ -1771,12 +1771,12 @@ input[type="radio"] .styled:checked+label::after {
 }
 
 .button_section a {
-    width: 180px;
-    height: 55px;
+    width: 80px;
+    height: 50px;
     float: left;
     background: #000;
     text-align: center;
-    line-height: 55px;
+    line-height: 50px;
     color: #fff;
     margin-right: 30px;
     font-weight: 300;
@@ -1843,7 +1843,7 @@ input[type="radio"] .styled:checked+label::after {
 
 .comment_form input {
     width: 100%;
-    height: 70px;
+    height: 50px;
     border: solid #767575 1px;
     margin: 10px 0;
     padding: 15px 20px;
