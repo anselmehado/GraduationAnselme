@@ -5,7 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'style', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag Ckeditor.cdn_url %>
 
@@ -13,31 +14,6 @@
 
     <%= stylesheet_link_tag    'responsive', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'jquery.mCustomScrollbar.min', media: 'all', 'data-turbolinks-track': 'reload' %>
-       <!-- basic -->
-       <meta charset="utf-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <!-- mobile metas -->
-       <meta name="viewport" content="width=device-width, initial-scale=1">
-       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-       <!-- site metas -->
-       <title>Jack Blogger</title>
-       <meta name="keywords" content="">
-       <meta name="description" content="">
-       <meta name="author" content="">
-       <!-- bootstrap css -->
-       <link rel="stylesheet" href="css/bootstrap.min.css">
-       <!-- style css -->
-       <link rel="stylesheet" href="css/style.css">
-       <!-- Responsive-->
-       <link rel="stylesheet" href="css/responsive.css">
-       <!-- fevicon -->
-       <link rel="icon" href="images/fevicon.png" type="image/gif" />
-       <!-- Scrollbar Custom CSS -->
-       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-       <!-- Tweaks for older IEs-->
-       <!--[if lt IE 9]>
-       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 
 
   </head>
@@ -54,7 +30,7 @@
                    <div class="center-desk">
 
 
-                      <div class="logo"> <a href="index.html"><%= image_tag("logo.jpeg")%></a> </div>
+                      <div class="logo"> <a href="index.html"></a> </div>
                    </div>
                 </div>
              </div>
@@ -62,33 +38,32 @@
                 <div class="menu-area">
                    <div class="limit-box">
                       <nav class="main-menu">
-                         <ul class="menu-area-main">
-                            <li class="active">
-                               <a href="index.html">Home</a>
-                            </li>
-                            <li>
-                               <a href="about.html"><%= link_to 'Publication', new_publication_path %></a>
-                            </li>
-                            <li>
-                               <a href="marketing.html"><%= link_to 'Category', new_category_path %></a>
-                            </li>
-                            <li>
-                               <a href="profile.html"><%= link_to 'profile', edit_user_registration_path %></a>
-                            </li>
-                            <li>
-                               <a href="deconnexion.html"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></a>
-                            </li>
-
-                            <li>
-                               <a href="#"> <%= link_to "Login", new_user_session_path  %></a>
-                            </li>
-                            <li>
-                               <a href="#"><%= link_to "Sign up", new_user_registration_path  %></a>
-                            </li>
-                            <li>
-
-                            </li>
-                         </ul>
+                        <ul class="menu-area-main">
+                           <li class="active">
+                              <a href="index.html">Home</a>
+                           </li>
+                           <li>
+                              <a href="publication.html"><%= link_to 'New', new_publication_path %></a>
+                           </li>
+                           <li>
+                              <a href="marketing.html">   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></a>
+                           </li>
+                           <li>
+                              <a href="inscrip.html"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></a>
+                           </li>
+                           <li>
+                              <a href="contact.html"><%= link_to 'profile', edit_user_registration_path, :class => 'navbar-link' %></a>
+                           </li>
+                           <li>
+                              <a href="#"> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></a>
+                           </li>
+                           <li>
+                              <a href="#"><%= link_to 'Category', new_category_path %></a>
+                           </li>
+                           <li>
+                              <a href="#"><%= image_tag("search_icon.png")%></a>
+                           </li>
+                        </ul>
                       </nav>
                    </div>
                 </div>
@@ -242,7 +217,7 @@
              </div>
              <div class="col-lg-3 col-md-6">
                 <div class="footer_links">
-                   <h3> Computer</h3>
+                   <h3> Computers</h3>
                    <ol>
                       <li><%= image_tag("footer_blog.png")%></li>
                       <li><%= image_tag("footer_blog.png")%></li>

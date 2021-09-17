@@ -3,9 +3,7 @@
   <p id="notice"><%= notice %></p>
   <div class="publication-text">
     <p><strong>Title</strong>：<%= @publication.title %></p>
-
-    <!-- <p><strong>Content</strong>：<%= @publication.content %></p> -->
-      <p><strong>Content</strong>：<%= truncate(@publication.content.html_safe, length:15) %></p>
+    <p><strong>Content</strong>：<%= truncate(@publication.content.html_safe, length:100) %></p>
     <p><strong>Image</strong>：<%= image_tag(@publication.image_url,style:'width:100px;height:100px')  %></p>
     <p><strong>Date</strong>：<%= @publication.date %></p>
     <p><strong>Categorie</strong>：<%= @publication.category.name %></p>

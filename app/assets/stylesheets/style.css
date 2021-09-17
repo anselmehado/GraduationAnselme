@@ -1,8 +1,8 @@
+
 /*
 * = require_self
 
 */
-
 
 /*---------------------------------------------------------------------
     File Name: style.css
@@ -307,7 +307,7 @@ button {
 	color: #114c7d;
 	font-weight: 400;
 	font-size: 28px;
-	background-image: url('/assets/fevicon.png');
+	background-image: url('../images/fevicon.png');
 	background-repeat: no-repeat;
 	padding-left: 55px;
 	letter-spacing: -0.5px;
@@ -480,7 +480,7 @@ header {
     position: absolute;
     width: 58px;
     height: 122px;
-    background: url('/assets/head_d.png');
+    background: url('../images/head_d.png');
     content: "";
     right: -57px;
 }
