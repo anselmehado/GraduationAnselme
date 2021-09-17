@@ -1,5 +1,6 @@
 class PublicationsController < ApplicationController
   before_action :set_publication, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /publications or /publications.json
   def index
@@ -27,6 +28,7 @@ class PublicationsController < ApplicationController
 
       #@publication = current_user.publications.build(publication_params)
     #@publication = Publication.new(publication_params)
+
     @publication = Publication.new(publication_params.merge(user_id: current_user.id))
 
     respond_to do |format|
