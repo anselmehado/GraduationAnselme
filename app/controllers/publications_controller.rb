@@ -1,6 +1,8 @@
 class PublicationsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_publication, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  #before_action :authenticate_user! expert
+
 
   # GET /publications or /publications.json
   def index
@@ -16,6 +18,7 @@ class PublicationsController < ApplicationController
 
   # GET /publications/new
   def new
+
     @publication = Publication.new
   end
 
@@ -28,6 +31,7 @@ class PublicationsController < ApplicationController
 
       #@publication = current_user.publications.build(publication_params)
     #@publication = Publication.new(publication_params)
+
 
     @publication = Publication.new(publication_params.merge(user_id: current_user.id))
 
@@ -66,9 +70,19 @@ class PublicationsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    # def set_publication
+    #   @publication = Publication.find(params[:id])
+    # end
+
+
     def set_publication
-      @publication = Publication.find(params[:id])
+      unless current_user
+        @listing = Publicationfind(params[:id])
+      else
+        @listing = current_user.Publication.find(params[:id])
     end
+    end
+
 
     # Only allow a list of trusted parameters through.
     def publication_params

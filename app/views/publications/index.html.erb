@@ -21,8 +21,15 @@
                    <h5><%= publication.date %></h5>
                    <h5><%= publication.category.name %></h5>
                    <p>T<%= publication.content %></p>
+                   <div class="button_section">
+                      <%= link_to 'comment', new_comment_path %>
+                      <%= link_to 'Read', publication %>
+                      <%= link_to 'Edit', edit_publication_path(publication) %>
+                      <%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' }  %>
+                      <%= link_to 'New', new_publication_path %>
+                   </div>
 
-                   <div class="full slider_cont_section">
+                   <!-- <div class="full slider_cont_section">
                       <div class="button_section">
                          <%= link_to 'comment', new_comment_path %>
                          <%= link_to 'Read More', publication %>
@@ -30,7 +37,7 @@
                          <%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' }  %>
                          <%= link_to 'New Publication', new_publication_path %>
                       </div>
-                   </div>
+                   </div> -->
 
                 </div>
              </div>
