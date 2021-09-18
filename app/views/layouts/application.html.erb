@@ -10,11 +10,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag Ckeditor.cdn_url %>
 
-    <%= stylesheet_link_tag    'bootstrap.min', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-    <%= stylesheet_link_tag    'responsive', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'jquery.mCustomScrollbar.min', media: 'all', 'data-turbolinks-track': 'reload' %>
-
 
   </head>
   <body>
@@ -75,6 +70,8 @@
 
     <div class="banner-slider">
        <div class="container-fluid">
+
+
 
          <% if user_signed_in? %>
              <td>  Logged in as <strong><%= current_user.email %></strong>.</td> <br>
