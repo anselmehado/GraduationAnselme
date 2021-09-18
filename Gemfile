@@ -83,4 +83,3 @@ gem 'ahoy_matey'
 gem 'sass-rails', ' ~> 3.2.6’
 
 gem 'sass', '~> 3.2.0'
-#gem 'sass', '~> 5.0'
