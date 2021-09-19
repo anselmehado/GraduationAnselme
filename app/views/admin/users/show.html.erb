@@ -1,0 +1,25 @@
+<h1>Publication of <%= @user.name %></h1>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Title publication</th>
+    <th scope="col">Content</th>
+    <th scope="col">Image</th>
+    <th scope="col">Date</th>
+    <th scope="col">Category</th>
+  </tr>
+</thead>
+<tbody>
+<% @user.publications.each do |publication| %>
+  <tr >
+    <td class="task_row" scope="row"><%= publication.title %></td>
+    <td><%= publication.content %></td>
+    <td class="priority_row"><%= publication.image %></td>
+    <td><%= publication.date %></td>
+    <td><%= publication.category %></td>
+
+  </tr>
+<% end %>
+</tbody>
+</table>

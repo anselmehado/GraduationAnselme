@@ -10,14 +10,13 @@
     </div>
   <% end %>
 
-  <form class="" action="index.html" method="post">
 
        <div class="label_name">
           <%= form.text_field :name, placeholder: "Votre nom" %><br><br>
         </div>
 
         <div class="label_email">
-           <%= form.text_field :email, placeholder: "Votre email" , value: current_user.email %><br><br>
+           <%= form.text_field :email, placeholder: "Votre email" %><br><br>
          </div>
 
          <div class="content">
@@ -29,11 +28,8 @@
            <%= form.hidden_field :publication_id %>
          </div>
 
-      <div class="actions">
-      <input class="btn btn-primary" type="submit" value="Add comment">
-
-      </div>
-
-  </form>
+        <div class="actions">
+          <input class="btn btn-primary" type="submit" value="Add comment">
+        </div>
 
 <% end %>

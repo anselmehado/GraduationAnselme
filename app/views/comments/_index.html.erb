@@ -4,7 +4,8 @@
     <% if comment.id.present? %>
       <li>
         <div class="comment-content" id ="this_comment_<%= comment.id %>"></div>
-        <p><%= comment.name %></p>
+        <%= comment.user.name%>
+        <!-- <p><%= comment.name %></p> -->
         <p><%= comment.email %></p>
         <p><%= comment.content %></p>
 
