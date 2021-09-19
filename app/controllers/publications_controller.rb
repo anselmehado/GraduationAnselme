@@ -70,19 +70,19 @@ class PublicationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    # def set_publication
-    #   @publication = Publication.find(params[:id])
-    # end
+    #Use callbacks to share common setup or constraints between actions.
+    def set_publication
+      @publication = Publication.find(params[:id])
+    end
 
     #
-    def set_publication
-      unless current_user
-        @listing = Publicationfind(params[:id])
-      else
-        @listing = current_user.Publication.find(params[:id])
-    end
-    end
+    # def set_publication
+    #   unless current_user
+    #     @listing = Publicationfind(params[:id])
+    #   else
+    #     @listing = current_user.Publication.find(params[:id])
+    # end
+    # end
 
 
     # Only allow a list of trusted parameters through.
