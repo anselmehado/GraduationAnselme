@@ -11,17 +11,21 @@
   <% end %>
 
 
+
+
+
        <div class="label_name">
-          <%= form.text_field :name, placeholder: "Votre nom" %><br><br>
+
+          <%= form.text_field :name, placeholder: "Votre nom", required: true %><br><br>
         </div>
 
         <div class="label_email">
-           <%= form.text_field :email, placeholder: "Votre email" %><br><br>
+           <%= form.text_field :email, placeholder: "Votre email", required: true %><br><br>
          </div>
 
          <div class="content">
 
-            <%= form.text_area :content, placeholder: "Entrer un commentaire par rapport à la publication" %><br><br>
+            <%= form.text_area :content, placeholder: "Entrer un commentaire par rapport à la publication", required: true %><br><br>
           </div>
 
          <div class="field">
