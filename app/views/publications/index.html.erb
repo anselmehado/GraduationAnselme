@@ -22,7 +22,7 @@
                    <h5><%= publication.category.name %></h5>
                    <p>T<%= publication.content %></p>
                    <div class="button_section">
-                      <%= link_to 'comment', comments_path %>
+                      <%# <%= link_to 'comment', comments_path %> %>
                       <%= link_to 'Read', publication %>
                       <%= link_to 'Edit', edit_publication_path(publication) %>
                       <%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' }  %>

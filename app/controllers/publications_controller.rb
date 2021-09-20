@@ -1,5 +1,5 @@
 class PublicationsController < ApplicationController
-  before_action :authenticate_user!, except: [:index ]
+  before_action :authenticate_user!, except: [:index, :show ]
   before_action :set_publication, only: %i[ show edit update destroy ]
   #before_action :authenticate_user!
 

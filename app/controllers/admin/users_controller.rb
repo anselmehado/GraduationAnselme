@@ -1,6 +1,7 @@
 
 class Admin::UsersController < ApplicationController
-	skip_before_action :login_required, only: [:edit, :update, :destroy, :show]
+	before_action :login_required, only: [:edit, :update, :destroy, :show]
+	#skip_before_action :login_required, only: [:edit, :update, :destroy, :show]
 	before_action :is_admin, only: [:edit, :update, :destroy, :show,:index, :new]
 	before_action :set_user, only: [:edit, :update, :destroy, :show]
 
@@ -25,7 +26,7 @@ class Admin::UsersController < ApplicationController
 	end
 
 	def update
-		if params[:admin]
+		if params[:user_role]
 			if @user.user_role == true
 
 				@user.update_attribute(:user_role, false)
@@ -61,7 +62,7 @@ class Admin::UsersController < ApplicationController
 	end
 
 	def is_admin
-		if current_user.admin == false || current_user.admin.blank?
+		if current_user.user_role == false || current_user.user_role.blank?
 			redirect_to publications_path, notice:"This page is for administrators thank you for understanding !!"
 		end
 	end
