@@ -99,8 +99,8 @@ h5 {
 h6 {
 	font-size: 13px
 }
-
-*,
+/* 
+*, */
 *::after,
 *::before {
 	-webkit-box-sizing: border-box;
