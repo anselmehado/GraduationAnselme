@@ -82,4 +82,6 @@ gem 'ahoy_matey'
 #gem 'sass', '~> 5.0'
 
 #gem 'rails_admin', '~> 0.8.1'
-gem 'rails_admin', '~> 2.0'
+#gem 'rails_admin', '~> 2.0'
+
+gem 'rails_admin'
