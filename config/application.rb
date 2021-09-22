@@ -12,6 +12,9 @@ module GraduationAnselme
     config.load_defaults 5.2
     config.assets.initialize_on_precompile = false
 
+    config.time_zone = 'Lisbon'
+    config.active_record.default_timezone = :local
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
