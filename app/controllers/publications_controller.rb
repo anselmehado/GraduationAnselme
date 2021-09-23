@@ -11,20 +11,21 @@ class PublicationsController < ApplicationController
 
   # GET /publications/1 or /publications/1.json
 
-  # def show
-  #       @favorite = current_user.favorites.find_by(publication_id: @publication.id)
-  #       @comments = @publication.comments
-  #       @comment = @publication.comments.build
-  # end
-
-
   def show
-    if current_user.present?
-      @favorite = current_user.favorites.find_by(publication_id: @publication.id)
-    end
+      
+        @favorite = current_user.favorites.find_by(publication_id: @publication.id)
         @comments = @publication.comments
         @comment = @publication.comments.build
   end
+
+  #
+  # def show
+  #   if current_user.present?
+  #     @favorite = current_user.favorites.find_by(publication_id: @publication.id)
+  #   end
+  #       @comments = @publication.comments
+  #       @comment = @publication.comments.build
+  # end
 
 
   # GET /publications/new
