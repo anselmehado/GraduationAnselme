@@ -1,5 +1,5 @@
 class PublicationsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show ]
+  before_action :authenticate_user!, except: [:index ]
   before_action :set_publication, only: %i[ show edit update destroy ]
   #before_action :authenticate_user!
 
@@ -11,11 +11,21 @@ class PublicationsController < ApplicationController
 
   # GET /publications/1 or /publications/1.json
 
+  # def show
+  #       @favorite = current_user.favorites.find_by(publication_id: @publication.id)
+  #       @comments = @publication.comments
+  #       @comment = @publication.comments.build
+  # end
+
+
   def show
-        @favorite = current_user.favorites.find_by(publication_id: @publication.id)
+    if current_user.present?
+      @favorite = current_user.favorites.find_by(publication_id: @publication.id)
+    end
         @comments = @publication.comments
         @comment = @publication.comments.build
   end
+
 
   # GET /publications/new
   def new

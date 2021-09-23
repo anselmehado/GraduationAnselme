@@ -3,7 +3,7 @@
 #   end
 # end
 class SessionsController < ApplicationController
-  before_action :login_required, only: [:new, :create]
+  #before_action :login_required, only: [:new, :create]
   def new
   end
 
