@@ -32,9 +32,6 @@
 # en:
 #   hello: "Hello world"
 
-
-
----
 en:
   activerecord:
     errors:

@@ -1,9 +1,8 @@
-ja:
-  view:
-    sample: sample
+# ja:
+#   view:
+#     sample: sample
 
 
----
 ja:
   activerecord:
     errors:
