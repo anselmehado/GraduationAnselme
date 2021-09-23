@@ -85,3 +85,5 @@ gem 'ahoy_matey'
 #gem 'rails_admin', '~> 2.0'
 
 gem 'rails_admin'
+
+gem 'faker'
