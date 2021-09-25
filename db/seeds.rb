@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
 
 Category.create(name:"Politique")
 Category.create(name:"sante")
@@ -32,49 +26,44 @@ require 'faker'
 	)
 end
 
-# def time_rand from = 0.0, to = Time.now
-#     Time.at(from + rand * (to.to_f - from.to_f))
-# end
-#
-# 5.times do |index|
-# 	Publication.create!(
-# 	    title: Faker::Book.title,
-# 	    content: Faker::Lorem.paragraph,
-#       image: Faker::LoremFlickr.image,
-# 	    date: time_rand.year.to_s+"/"+time_rand.month.to_s+"/"+time_rand.day.to_s,
-# 	    user_id: User.all.pluck(:id).sample,
-#       category_id: Category.all.pluck(:id).sample,
-# 	)
-# end
-# #
-#
-# 5.times do |index|
-# 	Comment.create!(
-# 	    content: Faker::Lorem.sentences(number: 2),
-# 	    name:  Faker::Lorem.word,
-#       email: Faker::Internet.email,
-# 	    publication_id: Publication.all.pluck(:id).sample,
-# 	)
-# end
-# #
-#
-# 5.times do |index|
-# 	Category.create!(
-#
-# 	    name: Faker::Lorem.phrase,
-#
-# 	)
-# end
-# #
-# #
-# 5.times do |index|
-# 	Favorite.create!(
-#
-# 	    user_id: User.all.pluck(:id).sample,
-#       publication_id: Publication.all.pluck(:id).sample,
-# 	)
-# end
-#
+def time_rand from = 0.0, to = Time.now
+    Time.at(from + rand * (to.to_f - from.to_f))
+end
+
+5.times do |index|
+	Publication.create!(
+	    title: Faker::Book.title,
+	    content: Faker::Lorem.paragraph,
+      image: Faker::LoremFlickr.image,
+	    date: time_rand.year.to_s+"/"+time_rand.month.to_s+"/"+time_rand.day.to_s,
+	    user_id: User.all.pluck(:id).sample,
+      category_id: Category.all.pluck(:id).sample,
+	)
+end
+
+5.times do |index|
+	Comment.create!(
+	    content: Faker::Lorem.sentences(number: 2),
+	    name:  Faker::Lorem.word,
+      email: Faker::Internet.email,
+	    publication_id: Publication.all.pluck(:id).sample,
+	)
+end
+
+5.times do |index|
+	Category.create!(
+			name:  Faker::Lorem.word,
+	)
+end
+
+5.times do |index|
+	Favorite.create!(
+
+	    user_id: User.all.pluck(:id).sample,
+      publication_id: Publication.all.pluck(:id).sample,
+	)
+end
+
 
 
 

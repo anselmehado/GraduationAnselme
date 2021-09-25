@@ -1,7 +1,6 @@
-
 class Admin::UsersController < ApplicationController
 	before_action :login_required, only: [:edit, :update, :destroy, :show]
-	#skip_before_action :login_required, only: [:edit, :update, :destroy, :show]
+
 	before_action :is_admin, only: [:edit, :update, :destroy, :show,:index, :new]
 	before_action :set_user, only: [:edit, :update, :destroy, :show]
 

@@ -1,46 +1,30 @@
 class PublicationsController < ApplicationController
-  #before_action :authenticate_user!, except: [:index ]
+
   before_action :authenticate_user!, except: [:index, :show ]
   before_action :set_publication, only: %i[ show edit update destroy ]
-  #before_action :authenticate_user!
+  before_action :verify_user, only: [:edit, :update, :destroy]
 
-
-  # GET /publications or /publications.json
   def index
     @publications = Publication.all
   end
 
-  # GET /publications/1 or /publications/1.json
-  #
-  # def show
-  #
-  #       @favorite = current_user.favorites.find_by(publication_id: @publication.id)
-  #       @comments = @publication.comments
-  #       @comment = @publication.comments.build
-  # end
-
-  #
   def show
     if current_user.present?
       @favorite = current_user.favorites.find_by(publication_id: @publication.id)
     end
-        @comments = @publication.comments
-        @comment = @publication.comments.build
+      @comments = @publication.comments
+      @comment = @publication.comments.build
   end
 
-
-  # GET /publications/new
   def new
 
     @publication = Publication.new
 
   end
 
-  # GET /publications/1/edit
   def edit
   end
 
-  # POST /publications or /publications.json
   def create
     @publication = Publication.new(publication_params.merge(user_id: current_user.id))
 
@@ -55,7 +39,6 @@ class PublicationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /publications/1 or /publications/1.json
   def update
     respond_to do |format|
       if @publication.update(publication_params)
@@ -68,7 +51,6 @@ class PublicationsController < ApplicationController
     end
   end
 
-  # DELETE /publications/1 or /publications/1.json
   def destroy
     @publication.destroy
     respond_to do |format|
@@ -84,16 +66,16 @@ class PublicationsController < ApplicationController
     end
 
 
-    def verify_user
-  unless current_user ==  @publication.user
-    flash[:danger] = "vous n'a le droit !"
-    redirect_to root_path
-  end
+  def verify_user
+      unless current_user ==  @publication.user
+      flash[:danger] = "vous ne pouvez pas faire cette action !"
+      redirect_to root_path
+      end
   end
 
-
-    # Only allow a list of trusted parameters through.
-    def publication_params
+  def publication_params
       params.require(:publication).permit(:title, :content, :image, :image_cache, :date, :category_id)
-    end
+  end
+
+
 end
