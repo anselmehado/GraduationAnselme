@@ -24,9 +24,12 @@
                    <div class="button_section">
 
                       <%= link_to 'Read', publication %>
+                        <% if current_user == publication.user %>
                       <%= link_to 'Edit', edit_publication_path(publication) %>
                       <%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' }  %>
+                      <% end %>
                       <%= link_to 'New', new_publication_path %>
+                    
                    </div>
 
                    <!-- <div class="full slider_cont_section">

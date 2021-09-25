@@ -33,7 +33,7 @@ class PublicationsController < ApplicationController
   def new
 
     @publication = Publication.new
-    
+
   end
 
   # GET /publications/1/edit
@@ -42,11 +42,6 @@ class PublicationsController < ApplicationController
 
   # POST /publications or /publications.json
   def create
-
-      #@publication = current_user.publications.build(publication_params)
-    #@publication = Publication.new(publication_params)
-
-
     @publication = Publication.new(publication_params.merge(user_id: current_user.id))
 
     respond_to do |format|
@@ -83,19 +78,18 @@ class PublicationsController < ApplicationController
   end
 
   private
-    #Use callbacks to share common setup or constraints between actions.
+
     def set_publication
       @publication = Publication.find(params[:id])
     end
 
-    #
-    # def set_publication
-    #   unless current_user
-    #     @listing = Publicationfind(params[:id])
-    #   else
-    #     @listing = current_user.Publication.find(params[:id])
-    # end
-    # end
+
+    def verify_user
+  unless current_user ==  @publication.user
+    flash[:danger] = "vous n'a le droit !"
+    redirect_to root_path
+  end
+  end
 
 
     # Only allow a list of trusted parameters through.

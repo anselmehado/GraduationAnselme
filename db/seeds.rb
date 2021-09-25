@@ -26,57 +26,77 @@ require 'faker'
 	User.create!(
 	    name: Faker::Name.name,
 	    email: Faker::Internet.email,
-      user_role: Faker::Role.user_role,
+      user_role: "default",
 	    password: "password",
 	    password_confirmation: "password",
 	)
 end
 
+# def time_rand from = 0.0, to = Time.now
+#     Time.at(from + rand * (to.to_f - from.to_f))
+# end
+#
+# 5.times do |index|
+# 	Publication.create!(
+# 	    title: Faker::Book.title,
+# 	    content: Faker::Lorem.paragraph,
+#       image: Faker::LoremFlickr.image,
+# 	    date: time_rand.year.to_s+"/"+time_rand.month.to_s+"/"+time_rand.day.to_s,
+# 	    user_id: User.all.pluck(:id).sample,
+#       category_id: Category.all.pluck(:id).sample,
+# 	)
+# end
+# #
+#
+# 5.times do |index|
+# 	Comment.create!(
+# 	    content: Faker::Lorem.sentences(number: 2),
+# 	    name:  Faker::Lorem.word,
+#       email: Faker::Internet.email,
+# 	    publication_id: Publication.all.pluck(:id).sample,
+# 	)
+# end
+# #
+#
+# 5.times do |index|
+# 	Category.create!(
+#
+# 	    name: Faker::Lorem.phrase,
+#
+# 	)
+# end
+# #
+# #
+# 5.times do |index|
+# 	Favorite.create!(
+#
+# 	    user_id: User.all.pluck(:id).sample,
+#       publication_id: Publication.all.pluck(:id).sample,
+# 	)
+# end
+#
 
-def time_rand from = 0.0, to = Time.now
-    Time.at(from + rand * (to.to_f - from.to_f))
-end
-
-5.times do |index|
-	Publication.create!(
-	    title: Faker::Lorem.mots,
-	    content: Faker::Lorem.paragraphe,
-      image: File.open(Dir.glob(File.join(Rails.root, 'sampleimages', '*')).sample),
-	    date: time_rand.year.to_s+"/"+time_rand.month.to_s+"/"+time_rand.day.to_s,
-	    publication_id: User.all.pluck(:id).sample,
-      category_id: Category.all.pluck(:id).sample,
 
 
-	)
-end
 
 
-5.times do |index|
-	Comment.create!(
-	    content: Faker::Lorem.mots,
-	    name: Faker::Lorem.phrase,
-      email: Faker::Internet.email,
-	    publication_id: Publication.all.pluck(:id).sample,
-	)
-end
 
 
-5.times do |index|
-	Category.create!(
-
-	    name: Faker::Lorem.phrase,
-
-	)
-end
 
 
-5.times do |index|
-	Favorite.create!(
 
-	    user_id: User.all.pluck(:id).sample,
-      publication_id: Publication.all.pluck(:id).sample,
-	)
-end
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #User.create(name: "anselme", email: "anselme@yahoo.fr", admin: "true", password: "123456", password_confirmation: "123456")

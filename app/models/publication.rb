@@ -10,5 +10,14 @@ class Publication < ApplicationRecord
   has_many :comments, dependent: :destroy
 
 
+  def pub_image
+  if image.present?
+    image.url
+  else
+    "blog2.png"
+  end
+  end
+
+
 
 end
