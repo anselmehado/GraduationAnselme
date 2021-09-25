@@ -26,7 +26,8 @@ class PublicationsController < ApplicationController
   end
 
   def create
-    @publication = Publication.new(publication_params.merge(user_id: current_user.id))
+    @publication = Publication.new(publication_params.merge(user_id: current_user))
+    #@publication = Publication.new(publication_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @publication.save
