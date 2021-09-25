@@ -33,6 +33,7 @@ class PublicationsController < ApplicationController
   def new
 
     @publication = Publication.new
+    
   end
 
   # GET /publications/1/edit
