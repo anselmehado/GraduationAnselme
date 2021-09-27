@@ -1,6 +1,9 @@
 
 
-User.create(name: "gedeon", email: "gedeon@yahoo.fr", user_role: "true", password: "123456", password_confirmation: "123456")
+User.create(name: "gedeon", email: "gedeon@yahoo.fr", user_role: "simple_user", password: "123456", password_confirmation: "123456")
+
+
+
 
 
 Category.create(name:"Politique")
@@ -22,7 +25,7 @@ require 'faker'
 	User.create!(
 	    name: Faker::Name.name,
 	    email: Faker::Internet.email,
-      user_role: "default",
+      user_role: "admin",
 	    password: "password",
 	    password_confirmation: "password",
 	)
