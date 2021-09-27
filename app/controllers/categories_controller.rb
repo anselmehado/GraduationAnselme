@@ -6,23 +6,19 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  # GET /categories/1 or /categories/1.json
   def show
   end
 
-  # GET /categories/new
   def new
     @category = Category.new
   end
 
-  # GET /categories/1/edit
   def edit
   end
 
-  # POST /categories or /categories.json
   def create
+
     @category = Category.new(category_params.merge(user_id: current_user.id))
-    #@category = Category.new(category_params)
 
     respond_to do |format|
       if @category.save

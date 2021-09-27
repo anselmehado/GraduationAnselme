@@ -22,6 +22,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+  <label for="inputDisabledEx2" class="disabled">Choise your Role</label>
+    <%= f.collection_select :user_role, User.order(:user_role),:id,:user_role, include_blank: true%>
+  </div>
+
   <div class="actions">
   <%= f.submit "Sign up" %>
 </div>
