@@ -68,7 +68,20 @@
          <% if user_signed_in? %>
              <td>  Logged in as <strong><%= current_user.email %></strong>.</td> <br>
 
+
+
        <div class=""> <br><br>
+         <div class="">
+           <% if current_user.user_role == "simple_user" %>
+
+             <%= link_to "Read", publications_path %>
+             <% elsif %>
+               <% if current_user.user_role == "author" %>
+
+               <%= link_to "Read", publication_path %> <%= link_to "New", new_publication_path %>
+               <%= link_to "Edit", edit_publication_path(publication.id) %>
+         <% end %>
+         <% end %>
 
              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
@@ -76,8 +89,12 @@
              <%# link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
              <%#= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
          <% end %>
+
+
+
       </div>
 
+      </div>
 
        <%= yield %>
 

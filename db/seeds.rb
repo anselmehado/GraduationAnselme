@@ -2,6 +2,8 @@
 
 User.create(name: "gedeon", email: "gedeon@yahoo.fr", user_role: "simple_user", password: "123456", password_confirmation: "123456")
 
+User.create(name: "gedeon", email: "gedeon@yahoo.fr", user_role: "admin", password: "123456admin", password_confirmation: "123456admin")
+User.create(name: "gedeon", email: "gedeon@yahoo.fr", user_role: "author", password: "123456author", password_confirmation: "123456author")
 
 
 
