@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
+
    belongs_to :publications, optional: true
    #belongs_to :publications
    scope :publication_comment_list, -> (query) {where(publication_id: query)}

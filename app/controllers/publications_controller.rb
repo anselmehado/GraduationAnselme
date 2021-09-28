@@ -3,6 +3,8 @@ class PublicationsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show ]
   before_action :set_publication, only: %i[ show edit update destroy ]
   before_action :verify_user, only: [:edit, :update, :destroy]
+  before_action :can_create_publication, only: [:new, :create]
+
 
   def index
     @publications = Publication.all
@@ -72,6 +74,12 @@ class PublicationsController < ApplicationController
       flash[:danger] = "vous ne pouvez pas faire cette action !"
       redirect_to root_path
       end
+  end
+
+  def can_create_publication
+    unless current_user && current_user.user_role == "admin" || current_user && current_user.user_role == "author"
+      redirect_to publications_url, notice: "you are not allowed to create publication"
+    end
   end
 
   def publication_params

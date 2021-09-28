@@ -4,12 +4,22 @@
     <title>GraduationAnselme</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'style', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag Ckeditor.cdn_url %>
+
+
   </head>
   <body>
+    <% if notice %>
+      <p class="alert alert-success", style='margin:2%'><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger", style='margin:2%'><%= alert %></p>
+    <% end %>
+
     <!-- header -->
     <header>
        <!-- header inner -->
@@ -18,6 +28,8 @@
              <div class="col-lg-3 logo_section">
                 <div class="full">
                    <div class="center-desk">
+
+
                       <div class="logo"> <a href="index.html"></a> </div>
                    </div>
                 </div>
@@ -30,35 +42,39 @@
                            <li class="active">
                               <a href="<%= root_path %>">Home</a>
                            </li>
-                           <li class="active">
-                              <a href="<%= new_user_session_path %>">Login</a>
-                           </li>
-                           <% if current_user && current_user.user_role == "author" %>
+                           <% if user_signed_in? %>
+                           <% if current_user.user_role == "author" %>
+                              <li>
+                                 <%= link_to 'New', new_publication_path %>
+                              </li>
+                           <% end %>
                            <li>
-                              <a href="publication.html"><%= link_to 'New', new_publication_path %></a>
+                             <%= link_to 'profile', edit_user_registration_path %>
                            </li>
                            <li>
-                              <a href="marketing.html"><%= link_to "Logout", destroy_user_session_path, method: :delete  %></a>
+                              <%= link_to 'Read', publications_path %></a>
+                           </li>
+
+                           <% if user_signed_in? && current_user.user_role== 'admin'%>
+                              <li>
+                                  <%= link_to "Dashboard",  rails_admin.dashboard_path,:"data-no-turbolink"=>true,method:"get" %>
+                              </li>
+                          <% end %>
+
+                           <li>
+                              <%= link_to "Logout", destroy_user_session_path, method: :delete  %></a>
+
+                           </li>
+                           <% else %>
+                           <li>
+                             <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
                            </li>
                            <li>
-                              <a href="root_path"><%= link_to 'profile', edit_user_registration_path %></a>
+                             <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
                            </li>
+                           <% end %>
                         </ul>
-                        <% elsif   current_user && current_user.user_role == "admin"  %>
-                            <li>
-                              <a href="publication.html"><%= link_to 'New', new_publication_path %></a>
-                           </li>
-                           <li>
-                              <a href="marketing.html"><%= link_to "Logout", destroy_user_session_path, method: :delete  %></a>
-                           </li>
-                           <li>
-                              <a href="marketing.html"><%= link_to "admin", rails_admin_path %></a>
-                           </li>
-                           <li>
-                              <a href="root_path"><%= link_to 'profile', edit_user_registration_path %></a>
-                           </li>
                       </nav>
-                      <% end %>
                    </div>
                 </div>
              </div>
@@ -66,19 +82,10 @@
        </div>
        <!-- end header inner -->
     </header>
-    <div class="banner-slider">
-       <div class="container-fluid">
-         <% if user_signed_in? %>
-             <td>  Logged in as <strong><%= current_user.email %></strong>.</td> <br>
-             <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-          <% else %>
-             <%# link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-             <%#= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-         <% end %>
-      </div>
-      </div>
+
+
        <%= yield %>
+
     <section class="layout_padding">
        <div class="container">
           <div class="row">
@@ -93,32 +100,43 @@
                 <div class="full comment_blog_line">
                    <div class="row">
                       <div class="col-md-1">
+
+
                       </div>
                       <div class="col-md-9">
                          <div class="full contact_text">
+
                          </div>
                       </div>
+
                    </div>
                 </div>
                 <div class="full comment_blog_line">
                    <div class="row">
                       <div class="col-md-1">
+
+
                       </div>
                       <div class="col-md-9">
                          <div class="full contact_text">
+
                          </div>
                       </div>
+
                    </div>
                 </div>
              </div>
           </div>
+
        </div>
     </section>
+
     <!-- footer -->
     <footer>
        <div class="container">
           <div class="row">
              <div class="col-lg-4 col-md-6">
+
                 <a href="#"></a>
                 <ul class="contact_information">
                    <li><span><%= image_tag("location_icon.png")%></span><span class="text_cont">Benin-Cotonou<br>Porto-Novo</span></li>
@@ -154,6 +172,7 @@
                       <li><%= image_tag("footer_blog.png")%></li>
                       <li><%= image_tag("footer_blog.png")%></li>
                       <li><%= image_tag("footer_blog.png")%></li>
+
                    </ol>
                 </div>
              </div>
@@ -168,6 +187,7 @@
                          <div class="field">
                             <input type="email" name="email" placeholder="Email" required="" />
                          </div>
+
                          <div class="field">
                             <textarea placeholder="Message"></textarea>
                          </div>
@@ -202,5 +222,8 @@
     <!-- Scrollbar Js Files -->
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/custom.js"></script>
+
+
+
   </body>
 </html>
