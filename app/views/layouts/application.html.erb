@@ -63,14 +63,9 @@
     <div class="banner-slider">
        <div class="container-fluid">
 
-
-
          <% if user_signed_in? %>
              <td>  Logged in as <strong><%= current_user.email %></strong>.</td> <br>
 
-
-
-       <div class=""> <br><br>
          <div class="">
            <% if current_user.user_role == "simple_user" %>
 
@@ -90,14 +85,9 @@
              <%#= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
          <% end %>
 
-
-
-      </div>
-
       </div>
 
        <%= yield %>
-
 
     <section class="layout_padding">
        <div class="container">
