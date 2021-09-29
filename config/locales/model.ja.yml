@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      publication: 出版物
+      user: ユーザー
+      category: カテゴリー
+      comment: コメント
+      favorite: お気に入り
+    attributes:
+      publication: 
+        title: 名前
+        content: 説明
+        image: 画像
+      user:
+        user_role: 役割
+        name: 名前
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶
+      category:
+        name: 名前
+        description: 説明
+      comment:
+        content: コンテンツ
