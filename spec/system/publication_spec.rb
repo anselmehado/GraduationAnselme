@@ -1,62 +1,36 @@
 require 'rails_helper'
-RSpec.describe 'publication management function', type: :system do
-  before do
-    FactoryBot.create(:publication)
-    @user = FactoryBot.create(:user)
+RSpec.feature "publication mandatement function", type: :feature do
+  background do
+    User.create!( email: 'anslime@gmail.Com',  password: '123456', password_confirmation:'123456')
+    visit new_user_session_path
+    fill_in 'email', with: 'anselme@gmail.com'
+    fill_in 'Password', with: '123456'
+    click_on 'Log in'
+    Publication.create(title:'Toyota', date:'6', content:'pink')
   end
-
-  describe 'New creation function' do
-    before(:each) do
-    visit root_path
+  scenario "Test description list" do
+    visit publications_path
   end
-
-  context 'When creating a new publication' do
-    it 'The created publication is displayed' do
-      visit sessions_new_path
-      fill_in 'email', with: @user.email
-      fill_in 'password', with: @user.password
-      click_button "Login"
-      visit new_publication_path
-      fill_in 'publication', with: 'publication'
-
-      click_button "Register"
-      expect(page).to have_content 'publication'
-
-    end
+  scenario "Test publication creation" do
+    Publication.create(title:'Toyota', date:'6', content:'pink')
   end
-end
-
-describe 'List display function' do
-  before do
-    visit sessions_new_path
-    fill_in 'email', with: @user.email
-    fill_in 'password', with: @user.password
-    click_button "Login"
+  scenario "Test publication details" do
+    Publication.first
   end
+  scenario "Test publication updating" do
 
-  context 'When transitioning to the list screen' do
-    it 'The created publication list is displayed' do
-      publication = FactoryBot.create(:publication, title: 'publication')
-      visit publications_path
-      expect(page).to have_content 'publication'
-    end
+    publication=Publication.create(title:'Toyota', date:'6', content:'pink')
+    publication.title='Toyota2'
+    publication.save
+   # save_and_open_pdate
   end
-
-
-  describe 'Detailed display function' do
-  before do
-    visit sessions_new_path
-    fill_in 'email', with: @user.email
-    fill_in 'password', with: @user.password
-    click_button "Login"
+  scenario 'Test publication Deletion' do
+    publication2=Publication.create(title:'Toyota', date:'6', content:'pink')
+    publication2.delete
+    visit publications_path
   end
-end
-   context 'When transitioned to any publication details screen' do
-     it 'The content of the relevant publication is displayed' do
-      publication = FactoryBot.create(:publication, title: 'publication')
-      visit task_path(publication.id)
-      expect(page).to have_content 'publication'
-     end
-   end
-end
+  scenario 'Test publication validation' do
+    Publication.create(title:'Toyota', date:'6', content:'pink')
+    visit publications_path
+  end
 end

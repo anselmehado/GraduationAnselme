@@ -20,7 +20,7 @@ RSpec.describe Publication, type: :model do
     context 'If the publication Title and content are described' do
       it 'Validation passes' do
         publication = Publication.new(title: 'Publication', content:  'test')
-        
+        expect(publication).to be_valid
       end
     end
 
@@ -30,3 +30,10 @@ RSpec.describe Publication, type: :model do
 
 end
 
+
+
+require 'rails_helper'
+
+RSpec.describe Task, type: :model do
+
+  end
