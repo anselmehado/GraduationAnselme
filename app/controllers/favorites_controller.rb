@@ -1,6 +1,9 @@
 class FavoritesController < ApplicationController
   def index
     @favorites = Favorite.all
+    @favorites = Favorite.all.order('created_at DESC')
+
+
 
   end
 
