@@ -25,16 +25,16 @@
                    <div class="button_section">
 
                       <%= link_to 'Read', publication %>
+                        <%  @user_favorites = @favorites.find_by(publication_id:publication.id).user_id %>
+                        <% if @user_favorites == nil %>
+                      
+                        <% else %>
 
-                      <%  @user_favorites = @favorites.find_by(publication_id:publication.id).user_id %>
-                      <% if @user_favorites == nil %>
-                          <%=  %>
-                      <% else %>
+                          <% @user_favorites.each do |t| %>
+                            <%= t.name %>
+                          <% end %>
+                        <% end  %>
 
-                        <% @user_favorites.each do |t| %>
-                          <%= t.name %>
-                        <% end %>
-                      <% end  %>
                         <% if current_user == publication.user %>
                       <%= link_to 'Edit', edit_publication_path(publication) %>
                       <%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' }  %>
