@@ -19,12 +19,22 @@
                 <div class="full blog_cont">
                    <h4><%= publication.title %></h4>
                    <h5><%= publication.date %></h5>
-                   <h5><%= publication.user.name %></h5>
+
                    <h5><%= publication.category.name %></h5>
                    <p>T<%= publication.content %></p>
                    <div class="button_section">
 
                       <%= link_to 'Read', publication %>
+
+                      <%  @user_favorites = @favorites.find_by(publication_id:publication.id).user_id %>
+                      <% if @user_favorites == nil %>
+                          <%=  %>
+                      <% else %>
+
+                        <% @user_favorites.each do |t| %>
+                          <%= t.name %>
+                        <% end %>
+                      <% end  %>
                         <% if current_user == publication.user %>
                       <%= link_to 'Edit', edit_publication_path(publication) %>
                       <%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' }  %>

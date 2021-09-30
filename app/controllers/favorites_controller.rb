@@ -2,6 +2,7 @@ class FavoritesController < ApplicationController
   def index
     @favorites = Favorite.all
     @favorites = Favorite.all.order('created_at DESC')
+    #@favorites.find_by(publication_id: @publication.id).count
 
 
 
