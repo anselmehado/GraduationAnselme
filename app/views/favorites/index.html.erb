@@ -11,11 +11,26 @@
 
   <tbody>
     <% @favorites.each do |favorite| %>
-      <tr>
-        <td><%= link_to 'Show', favorite %></td>
-        <td><%= link_to 'Edit', edit_favorite_path(favorite) %></td>
-        <td><%= link_to 'Destroy', favorite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="row">
+       <div class="col-md-6">
+         <%= image_tag favorite.publication.pub_image, style:'width:300px;height:300px' %>
+       </div>
+       <div class="col-md-6">
+          <div class="full blog_cont">
+             <h4><%= favorite.publication.title %></h4>
+             <h5><%= favorite.publication.date %></h5>
+             <h5><%= favorite.publication.category.name %></h5>
+             <p>T<%= favorite.publication.content %></p>
+
+             <div class="button_section">
+               <%= link_to 'Read', favorite.publication %>
+
+
+             </div>
+          </div>
+       </div>
+    </div>
+
     <% end %>
   </tbody>
 </table>
